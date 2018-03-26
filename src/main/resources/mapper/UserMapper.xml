@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.imooc.dataobject.mapper.UserMapper" >
+      <resultMap id="BaseResultMap" type="com.imooc.dataobject.User" >
+          <id column="id" jdbcType="INTEGER" property="id" />
+          <id column="username" jdbcType="VARCHAR" property="username" />
+          <id column="password" jdbcType="VARCHAR" property="password" />
+          <id column="email" jdbcType="VARCHAR" property="email" />
+          <id column="phone" jdbcType="VARCHAR" property="phone" />
+          <id column="question" jdbcType="VARCHAR" property="question" />
+          <id column="answer" jdbcType="VARCHAR" property="answer" />
+          <id column="role" jdbcType="INTEGER" property="role" />
+          <id column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+          <id column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+      id, username, password, email, phone, question, answer, role, create_time, update_time
+    </sql>
+    <!-- 查看用户是否存在 -->
+    <select id="checkUsername" parameterType="com.imooc.dataobject.User" resultType="int">
+      select count(1) from user where username = #{username}
+    </select>
+    <!-- 用户登陆 -->
+    <select id="selectLogin" parameterType="com.imooc.dataobject.User" resultMap="BaseResultMap">
+      SELECT
+      <include refid="Base_Column_List" />
+      from user
+      where username = #{username}
+      and password = #{password}
+    </select>
+</mapper>
