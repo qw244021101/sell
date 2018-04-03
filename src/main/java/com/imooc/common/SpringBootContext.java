@@ -1,8 +1,10 @@
 package com.imooc.common;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 
-public class SpringBootContext {
+@Component
+public class SpringBootContext{
 
     private static ApplicationContext applicationContext;
 

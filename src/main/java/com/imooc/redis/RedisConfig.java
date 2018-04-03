@@ -72,6 +72,7 @@ public class RedisConfig {
             Redisson redisson = (Redisson)Redisson.create(config);
             return redisson;
         } catch (Exception e) {
+            e.printStackTrace();
             log.error("init redisson error");
         }
         return null;

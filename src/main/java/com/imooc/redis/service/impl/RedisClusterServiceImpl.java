@@ -3,7 +3,6 @@ package com.imooc.redis.service.impl;
 import com.imooc.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
 /**

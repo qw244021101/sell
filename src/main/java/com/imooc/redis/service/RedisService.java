@@ -10,4 +10,5 @@ public interface RedisService {
     public String set(String key, String value);
     /** 删除redis中的键值对 */
     public Long delete(String key);
+
 }
